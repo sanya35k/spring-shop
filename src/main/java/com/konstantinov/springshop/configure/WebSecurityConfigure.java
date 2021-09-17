@@ -1,7 +1,7 @@
-package com.konstantinov.springshop;
+package com.konstantinov.springshop.configure;
 
-import com.konstantinov.springshop.models.Role;
-import com.konstantinov.springshop.service.MyUserDetailsService;
+import com.konstantinov.springshop.model.Role;
+import com.konstantinov.springshop.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,15 +15,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private MyUserDetailsService myUserDetailsService;
+    private UserDetailService userDetailService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
+        http.authorizeRequests()
                 .antMatchers("/product/?", "/", "/home", "/user/**", "/registration", "/products", "/default").permitAll()
                 .antMatchers("/cabinet", "/principle/**").authenticated()
                 .antMatchers("/**").hasAuthority(String.valueOf(Role.ADMIN))
@@ -56,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider
                 = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(myUserDetailsService);
+        authProvider.setUserDetailsService(userDetailService);
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
@@ -65,5 +64,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }

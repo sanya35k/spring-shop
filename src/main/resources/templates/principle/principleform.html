@@ -9,7 +9,6 @@
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
 
-
 <form th:object="${principle}" th:action="@{/principle}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <md-content layout="column" layout-align="start start" flex layout-padding>

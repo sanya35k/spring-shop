@@ -1,7 +1,7 @@
-package com.konstantinov.springshop.controllers;
+package com.konstantinov.springshop.controller;
 
 import com.konstantinov.springshop.exception.EmailExistsException;
-import com.konstantinov.springshop.models.User;
+import com.konstantinov.springshop.model.User;
 import com.konstantinov.springshop.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,7 @@
 package com.konstantinov.springshop.service;
 
-import com.konstantinov.springshop.models.User;
-import com.konstantinov.springshop.repositories.UserRepository;
+import com.konstantinov.springshop.model.User;
+import com.konstantinov.springshop.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class MyUserDetailsService implements UserDetailsService {
-    private static Logger LOG = LoggerFactory.getLogger(MyUserDetailsService.class);
+public class UserDetailService implements UserDetailsService {
+    private static Logger LOG = LoggerFactory.getLogger(UserDetailService.class);
 
     private UserRepository userRepository;
 
@@ -31,15 +31,15 @@ public class MyUserDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException(username);
         }
-        LOG.info("Finded user : [" + username + "]");
-        return new MyUserPrincipal(user);
+        LOG.info("Find user : [" + username + "]");
+        return new UserPrincipal(user);
     }
 
 
-    public class MyUserPrincipal extends User implements UserDetails {
+    public class UserPrincipal extends User implements UserDetails {
         private User user;
 
-        private MyUserPrincipal(User user) {
+        private UserPrincipal(User user) {
             this.user = user;
         }
 

@@ -1,11 +1,10 @@
 package com.konstantinov.springshop;
 
-import com.konstantinov.springshop.models.Category;
-import com.konstantinov.springshop.models.Product;
-import com.konstantinov.springshop.models.Role;
-import com.konstantinov.springshop.models.User;
-import com.konstantinov.springshop.repositories.ProductRepository;
-import com.konstantinov.springshop.repositories.UserRepository;
+import com.konstantinov.springshop.model.Product;
+import com.konstantinov.springshop.model.Role;
+import com.konstantinov.springshop.model.User;
+import com.konstantinov.springshop.repository.ProductRepository;
+import com.konstantinov.springshop.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class JpaTest {
-
     @Autowired
     ProductRepository productRepository;
     @Autowired
@@ -39,15 +37,12 @@ public class JpaTest {
         userRepository.save(nazar);
         User user =userRepository.findByUsername("us");
         assertEquals(nazar, user);
-
     }
+
     @Test
     public void productOperation(){
         Product product = new Product(1,"t","test",10,"test.png");
         productRepository.save(product);
         assertEquals(product, productRepository.findOne(product.getId()));
-
     }
 }
-
-

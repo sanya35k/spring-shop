@@ -1,4 +1,4 @@
-package com.konstantinov.springshop.models;
+package com.konstantinov.springshop.model;
 
 public enum Role {
     USER("Role user"),

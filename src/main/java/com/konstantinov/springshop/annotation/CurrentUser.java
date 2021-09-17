@@ -1,4 +1,4 @@
-package com.konstantinov.springshop.annotations;
+package com.konstantinov.springshop.annotation;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 

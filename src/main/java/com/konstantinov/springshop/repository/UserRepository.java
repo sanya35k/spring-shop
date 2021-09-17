@@ -1,6 +1,6 @@
-package com.konstantinov.springshop.repositories;
+package com.konstantinov.springshop.repository;
 
-import com.konstantinov.springshop.models.User;
+import com.konstantinov.springshop.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

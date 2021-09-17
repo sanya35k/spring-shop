@@ -1,10 +1,10 @@
 package com.konstantinov.springshop;
 
-import com.konstantinov.springshop.models.Product;
-import com.konstantinov.springshop.models.Role;
-import com.konstantinov.springshop.models.User;
-import com.konstantinov.springshop.repositories.ProductRepository;
-import com.konstantinov.springshop.repositories.UserRepository;
+import com.konstantinov.springshop.model.Product;
+import com.konstantinov.springshop.model.Role;
+import com.konstantinov.springshop.model.User;
+import com.konstantinov.springshop.repository.ProductRepository;
+import com.konstantinov.springshop.repository.UserRepository;
 import com.konstantinov.springshop.storage.FileSystemStorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,10 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class SpringProjectApplication {
-
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(SpringProjectApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
     @Bean
@@ -30,18 +29,13 @@ public class SpringProjectApplication {
             productRepository.deleteAll();
             userRepository.deleteAll();
 
-            Product pomdor = new Product(8, "id", "Alex", 100, "photo.png");
+            Product product = new Product(8, "id", "Alex", 100, "photo.png");
             User admin = new User("admin", "alex.konstantinov@gmail.com", "password", Role.ADMIN, true);
-//            List<Product> basket = new ArrayList<>();
-//            basket.add(pomdor)
-//            admin.setBasket(basket);
-//            pomdor.setCategory(new Category("Electro"));
             User user = new User("user", "konstantinov03051999@gmail.com", "password", Role.USER, true);
 
             userRepository.save(admin);
-            productRepository.save(pomdor);
+            productRepository.save(product);
             userRepository.save(user);
         };
     }
 }
-

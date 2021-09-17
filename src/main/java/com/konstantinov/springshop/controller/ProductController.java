@@ -1,7 +1,7 @@
-package com.konstantinov.springshop.controllers;
+package com.konstantinov.springshop.controller;
 
-import com.konstantinov.springshop.models.Product;
-import com.konstantinov.springshop.repositories.ProductRepository;
+import com.konstantinov.springshop.model.Product;
+import com.konstantinov.springshop.repository.ProductRepository;
 import com.konstantinov.springshop.storage.FileSystemStorageService;
 import com.konstantinov.springshop.storage.StorageFileNotFoundException;
 import org.slf4j.Logger;

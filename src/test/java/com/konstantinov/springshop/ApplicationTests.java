@@ -25,7 +25,6 @@ public class ApplicationTests {
         FormLoginRequestBuilder login = formLogin()
             .user("user")
             .password("password");
-
         mockMvc.perform(login)
             .andExpect(authenticated().withUsername("user"));
     }
@@ -33,9 +32,8 @@ public class ApplicationTests {
     @Test
     public void InvalidUserUnauthenticated() throws Exception {
         FormLoginRequestBuilder login = formLogin()
-            .user("invalid")
+            .user("invaliduser")
             .password("invalidpassword");
-
         mockMvc.perform(login)
             .andExpect(unauthenticated());
     }

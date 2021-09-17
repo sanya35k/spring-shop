@@ -1,4 +1,4 @@
-package com.konstantinov.springshop.models;
+package com.konstantinov.springshop.model;
 
 import lombok.Data;
 import javax.persistence.*;
@@ -22,7 +22,6 @@ public class Product {
     @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
 
-
     public Product(Integer version, String productId, String name, Integer price, String photoName) {
         this.version = version;
         this.productId = productId;
@@ -31,6 +30,5 @@ public class Product {
         this.photoName = photoName;
     }
 
-    public Product() {
-    }
+    public Product() {}
 }

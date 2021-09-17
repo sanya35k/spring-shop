@@ -1,9 +1,9 @@
-package com.konstantinov.springshop.controllers;
+package com.konstantinov.springshop.controller;
 
 import com.konstantinov.springshop.exception.EmailExistsException;
-import com.konstantinov.springshop.models.Category;
-import com.konstantinov.springshop.models.Product;
-import com.konstantinov.springshop.repositories.CategoryRepository;
+import com.konstantinov.springshop.model.Category;
+import com.konstantinov.springshop.model.Product;
+import com.konstantinov.springshop.repository.CategoryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.konstantinov.springshop.models;
+package com.konstantinov.springshop.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,8 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.*;
 
 @Data
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -25,7 +25,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
     private Boolean isAccountNonLocked;
-
 
     public User(String username, String email, String password, Role role, boolean isAccountNonLocked) {
         this.username = username;

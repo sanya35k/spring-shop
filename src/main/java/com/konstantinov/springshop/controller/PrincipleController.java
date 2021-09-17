@@ -1,10 +1,10 @@
-package com.konstantinov.springshop.controllers;
+package com.konstantinov.springshop.controller;
 
-import com.konstantinov.springshop.annotations.CurrentUser;
+import com.konstantinov.springshop.annotation.CurrentUser;
 import com.konstantinov.springshop.exception.EmailExistsException;
-import com.konstantinov.springshop.models.User;
-import com.konstantinov.springshop.repositories.UserRepository;
-import com.konstantinov.springshop.service.MyUserDetailsService;
+import com.konstantinov.springshop.model.User;
+import com.konstantinov.springshop.repository.UserRepository;
+import com.konstantinov.springshop.service.UserDetailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class PrincipleController {
     }
 
     @RequestMapping(value = "/cabinet", method = RequestMethod.GET)
-    public String currentUserName(@CurrentUser MyUserDetailsService.MyUserPrincipal userDetails, Model model) {
+    public String currentUserName(@CurrentUser UserDetailService.UserPrincipal userDetails, Model model) {
         LOG.info(String.valueOf(userDetails.getUser()));
         User user = userDetails.getUser();
         LOG.info("Principle id: " + user.getId());
@@ -35,7 +35,6 @@ public class PrincipleController {
         return "cabinet";
     }
 
-    // Afficher le formulaire de modification du Product
     @RequestMapping("principle/edit/{id}")
     public String edit(@PathVariable Long id, Model model) throws UsernameNotFoundException {
         model.addAttribute("principle", userRepository.findOne(id));

@@ -1,4 +1,4 @@
-package com.konstantinov.springshop.models;
+package com.konstantinov.springshop.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class Category {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

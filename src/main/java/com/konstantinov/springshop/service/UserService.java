@@ -1,9 +1,9 @@
 package com.konstantinov.springshop.service;
 
 import com.konstantinov.springshop.exception.EmailExistsException;
-import com.konstantinov.springshop.models.Role;
-import com.konstantinov.springshop.models.User;
-import com.konstantinov.springshop.repositories.UserRepository;
+import com.konstantinov.springshop.model.Role;
+import com.konstantinov.springshop.model.User;
+import com.konstantinov.springshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -40,5 +40,4 @@ public class UserService {
 
         return userRepository.save(user);
     }
-
 }
